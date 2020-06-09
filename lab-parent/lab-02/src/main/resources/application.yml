@@ -1,0 +1,42 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: lab02
+
+  datasource:
+    druid:
+      url: jdbc:mysql://10.10.96.142/asset_org?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&serverTimezone=GMT%2B8
+      username: root
+      password: 111111
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      initialSize: 5
+      minIdle: 5
+      maxActive: 50
+      #最大等待时间，配置获取连接等待超时，时间单位都是毫秒ms
+      maxWait: 3000
+      #配置间隔多久才进行一次检测，检测需要关闭的空闲连接
+      timeBetweenEvictionRunsMillis: 60000
+      #配置一个连接在池中最小生存的时间
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      default-auto-commit: true
+
+mybatis-plus:
+  type-aliases-package: com.tsshare.lab02.entity
+  mapper-locations: classpath:/mybatis/**/*Mapper.xml
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+      table-underline: true
+  #      logic-delete-value: 1
+  #      logic-not-delete-value: 0
+  configuration:
+    jdbc-type-for-null: 'null'
+    cache-enabled: false
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
