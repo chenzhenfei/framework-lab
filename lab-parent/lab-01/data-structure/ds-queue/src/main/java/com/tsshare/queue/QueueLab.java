@@ -1,7 +1,11 @@
 package com.tsshare.queue;
 
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.PriorityBlockingQueue;
 
@@ -16,6 +20,28 @@ public class QueueLab {
         testLinkedBlockingQueue();
         testArrayBlockingQueue();
         testPriorityBlockingQueue();
+        testLinkedList();
+        testConcurrentLinkedQueue();
+        rest:
+        while(true){
+            continue rest;
+        }
+
+    }
+
+    private static void testConcurrentLinkedQueue() {
+        // 非阻塞线程安全队列
+        Queue u = new ConcurrentLinkedDeque();
+        u.offer(1);
+    }
+
+
+    private static void testLinkedList() {
+        // 线程不安全
+        LinkedList linkedList =new LinkedList();
+        linkedList.add(1);
+        linkedList.add(2);
+
     }
 
     private static void testArrayBlockingQueue() {
@@ -88,7 +114,6 @@ public class QueueLab {
 
     private static void testLinkedBlockingQueue() {
         LinkedBlockingQueue q = new LinkedBlockingQueue(10);
-
 
         for (int i = 0; i < 10; i++) {
             q.offer(i);
