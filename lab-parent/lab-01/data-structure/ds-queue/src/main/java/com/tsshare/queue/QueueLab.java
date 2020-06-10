@@ -1,8 +1,9 @@
 package com.tsshare.queue;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Iterator;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.PriorityBlockingQueue;
 
 /**
  * @author : zfchen
@@ -12,22 +13,133 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class QueueLab {
     public static void main(String[] args) {
-        Queue<String> que =new LinkedBlockingQueue<String>();
-        que.offer("1");
-        que.offer("2");
-        que.offer("3");
-        que.offer("4");
+//        testLinkedBlockingQueue();
+        testArrayBlockingQueue();
+        testPriorityBlockingQueue();
+    }
 
-        while (!que.isEmpty()){
-            System.out.println(que.poll());
+    private static void testArrayBlockingQueue() {
+        // 需要公平性，如果公平参数被设置true
+        ArrayBlockingQueue arrayBlockingQueue = new ArrayBlockingQueue(10, true);
+//        ArrayBlockingQueue arrayBlockingQueue = new ArrayBlockingQueue(10);
+        for (int i = 0; i < 10; i++) {
+            arrayBlockingQueue.offer(i);
         }
+        new Thread(new Runnable() {
+            int i = 10;
 
-        testLinkedList();
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(1000);
+                        i = i + 1;
+                        arrayBlockingQueue.put(i);
+                        Thread.sleep(3000);
+                        System.out.println(Thread.currentThread().getName() + " 尾部往里面放：" + i);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            int i = 100;
+
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        arrayBlockingQueue.put(i++);
+                        Thread.sleep(1000);
+                        System.out.println(Thread.currentThread().getName() + " 尾部往里面放：" + i);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(2000);
+                        Object take = arrayBlockingQueue.take();
+                        System.out.println(Thread.currentThread().getName() + " 从头不取：" + take);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+
+
     }
 
-    private static void testLinkedList() {
-        Queue q= new LinkedList();
-        LinkedList linkedList = new LinkedList();
+    private static void testPriorityBlockingQueue() {
+        PriorityBlockingQueue arrayBlockingQueue = new PriorityBlockingQueue(10);
+        arrayBlockingQueue.offer(1);
     }
+
+
+    private static void testLinkedBlockingQueue() {
+        LinkedBlockingQueue q = new LinkedBlockingQueue(10);
+
+
+        for (int i = 0; i < 10; i++) {
+            q.offer(i);
+        }
+        printlnRet(q);
+        new Thread(new Runnable() {
+            int i = 0;
+
+            @Override
+            public void run() {
+                Object s = new Object();
+                synchronized (s) {
+                    while (i < 10) {
+                        try {
+                            Thread.sleep(1000);
+                            i++;
+                            q.put(i);
+                            System.out.println("尾部往里面放：" + i);
+
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(10000);
+                        Object poll = q.take();
+                        System.out.println("头部往取：" + poll);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+
+    }
+
+    public static void printlnRet(LinkedBlockingQueue q) {
+        Iterator iterator = q.iterator();
+        while (iterator.hasNext()) {
+            Object next = iterator.next();
+            System.out.println(next);
+        }
+    }
+
 
 }
