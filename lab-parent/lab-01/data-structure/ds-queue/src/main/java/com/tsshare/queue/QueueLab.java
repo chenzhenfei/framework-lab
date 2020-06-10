@@ -13,7 +13,7 @@ import java.util.concurrent.PriorityBlockingQueue;
  */
 public class QueueLab {
     public static void main(String[] args) {
-//        testLinkedBlockingQueue();
+        testLinkedBlockingQueue();
         testArrayBlockingQueue();
         testPriorityBlockingQueue();
     }
