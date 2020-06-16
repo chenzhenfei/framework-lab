@@ -70,7 +70,7 @@ public class SeqStack<T> implements Stack<T>, Serializable {
     @Override
     public T peek() {
         if (isEmpty()) {
-            new EmptyStackException();
+            return null;
         }
         return array[top];
     }
@@ -78,7 +78,7 @@ public class SeqStack<T> implements Stack<T>, Serializable {
     @Override
     public T pop() {
         if (isEmpty()) {
-            new EmptyStackException();
+            return null;
         }
         size--;
         return array[top--];
