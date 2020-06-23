@@ -24,7 +24,24 @@ public class DirectInsertSort extends AbstractSort {
 
     @Override
     public int[] sort(int[] a) {
+        if (a == null || a.length == 0) {
+            return null;
+        }
+        int[] res = a;
 
-        return null;
+        for (int i = 1; i < res.length; i++) {
+            int tmp = res[i];
+            int j;
+            for (j = i - 1; j >= 0; j--) {
+                boolean b = res[j] > tmp;
+                if (b) {
+                    res[j + 1] = res[j];
+                } else {
+                    break;
+                }
+            }
+            res[j + 1] = tmp;
+        }
+        return res;
     }
 }
