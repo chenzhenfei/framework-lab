@@ -47,6 +47,8 @@
 
     <modules>
         <module>lab-01</module>
+        <module>lab-03</module>
+        <module>bloomfiter</module>
     </modules>
 
 
