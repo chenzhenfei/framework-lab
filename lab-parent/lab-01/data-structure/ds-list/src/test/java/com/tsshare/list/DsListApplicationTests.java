@@ -1,4 +1,4 @@
-package com.tssahre.list;
+package com.tsshare.list;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

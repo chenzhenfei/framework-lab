@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>data-structure</module>
-        <module>lab-02</module>
     </modules>
 
 

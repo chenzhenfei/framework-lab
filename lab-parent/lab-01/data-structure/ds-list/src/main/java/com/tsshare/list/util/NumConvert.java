@@ -1,4 +1,4 @@
-package com.tssahre.list.util;
+package com.tsshare.list.util;
 
 import java.util.ArrayList;
 import java.util.Collections;
