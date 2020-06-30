@@ -8,3 +8,4 @@
 package com.tsshare.kmp;
 
 //KMP：Knuth-Morris-Pratt算法（简称KMP） 核心原理是利用一个“部分匹配表”，跳过已经匹配过的元素。
+//http://www.ruanyifeng.com/blog/2013/05/Knuth–Morris–Pratt_algorithm.html
