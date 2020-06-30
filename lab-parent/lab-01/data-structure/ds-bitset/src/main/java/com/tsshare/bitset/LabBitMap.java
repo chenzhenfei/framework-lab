@@ -1,5 +1,7 @@
 package com.tsshare.bitset;
 
+import java.util.BitSet;
+
 /**
  * @author chenzhenfei
  * @title: LabBitMap
@@ -15,7 +17,7 @@ public class LabBitMap {
 
     public static void main(String[] args) {
         //待判重数据
-        int[] array = {255, 1024, 0, 65536, 255};
+        int[] array = {65535, 2, 3, 4, 5};
 
         int index = 0;
         for(int num : array) {
@@ -31,16 +33,23 @@ public class LabBitMap {
             }
         }
     }
+//
+//    public static void setFlag(int num) {
+//        //使用每个数的低三位作为byte内的映射
+//        //例如: 255 = (11111111)
+//        //低三位(也就是num & (0x07))为(111) = 7, 则byte的第7位为1, 表示255已存在
+//        flags[num >> 3] |= 0x01 << (num & (0x07));
+//
+//    }
+//    public static boolean getFlag(int num) {
+//        return (flags[num >> 3] >> (num & (0x07)) & 0x01) == 0x01;
+//    }
 
+    static BitSet seen = new BitSet((1 << 31) - 1);
     public static void setFlag(int num) {
-        //使用每个数的低三位作为byte内的映射
-        //例如: 255 = (11111111)
-        //低三位(也就是num & (0x07))为(111) = 7, 则byte的第7位为1, 表示255已存在
-        flags[num >> 3] |= 0x01 << (num & (0x07));
-
+        seen.set(num);
     }
-
     public static boolean getFlag(int num) {
-        return (flags[num >> 3] >> (num & (0x07)) & 0x01) == 0x01;
+        return seen.get(num);
     }
 }
