@@ -4,6 +4,8 @@ import com.tsshare.lab02.entity.role.Role;
 import com.tsshare.lab02.repository.role.RoleMapper;
 import com.tsshare.lab02.service.role.IRoleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -23,6 +25,7 @@ import org.springframework.util.Assert;
 @Transactional
 public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IRoleService {
 
+    @Cacheable(value = "roles")
     @Override
     public  IPage<Role> findListByPage(Integer page, Integer pageCount){
         IPage<Role> wherePage = new Page<>(page, pageCount);

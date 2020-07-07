@@ -2,8 +2,6 @@ package com.tsshare.sort.choosesort;
 
 import com.tsshare.sort.AbstractSort;
 
-import java.util.Arrays;
-
 /**
  * @author chenzhenfei
  * @title: HeapSort
@@ -25,7 +23,7 @@ public class HeapSort extends AbstractSort {
     @Override
     public int[] sort(int[] a) {
         if (a == null || a.length == 0) {
-            return null;
+            return new int[0];
         }
         int[] res = a;
         int arrayLength = a.length;

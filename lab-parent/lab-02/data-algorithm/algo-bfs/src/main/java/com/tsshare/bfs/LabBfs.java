@@ -7,7 +7,7 @@ import java.util.Queue;
  * @author chenzhenfei
  * @title: LabBfs
  * @projectName framework-lab
- * @description: 广度搜索
+ * @description: 广度搜索 - 朋友圈问题
  * @date 2020/7/223:25
  */
 public class LabBfs {
