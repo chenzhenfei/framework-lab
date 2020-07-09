@@ -1,10 +1,7 @@
 package com.tsshare.bfs;
 
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * @author : zfchen
@@ -44,9 +41,8 @@ public class LabBfsDemo {
 
     private List<Integer> find(BinTreeNode treeNode) {
         List<Integer> res = new ArrayList<>();
-        Queue<BinTreeNode> queue = new ArrayDeque<>();
+        Queue<BinTreeNode> queue = new LinkedList<>();
         queue.offer(treeNode);
-
         while (!queue.isEmpty()) {
             // 本次需要出队列处理的个数
             int size = queue.size();
