@@ -1,6 +1,7 @@
 package com.tsshare.bfs;
 
 import java.util.ArrayDeque;
+import java.util.LinkedList;
 import java.util.Queue;
 
 /**
@@ -9,6 +10,9 @@ import java.util.Queue;
  * @projectName framework-lab
  * @description: 广度搜索
  * @date 2020/7/223:25
+ * {1, 1, 0},
+ * {1, 1, 0},
+ * {0, 0, 1}
  */
 public class LabBfs {
     public static void main(String[] args) {
@@ -20,13 +24,13 @@ public class LabBfs {
     }
 
     private int bfs(int[][] m, int[] visit) {
-        Queue<Integer> q = new ArrayDeque<>();
+        Queue<Integer> q = new LinkedList<>();
         int count = 0;
         for (int i = 0; i < m.length; i++) {
             if (visit[i] == 0) {
-                q.offer(i);
+                q.add(i);
                 while (!q.isEmpty()) {
-                    int tmp = q.poll();
+                    int tmp = q.remove();
                     visit[tmp] = 1;
                     for (int j = 0; j < m.length; j++) {
                         if (m[tmp][j] == 1 && visit[j] == 0) {
