@@ -13,11 +13,11 @@ public class SetLab {
 
     public static void main(String[] args) {
         // 存取不重复的集合  重复条件： hashcode 相同 && equals 相同
-//       testHashSet();
+       testHashSet();
         //会保存插入的顺序
-//        testLinkedHashSet();
+        testLinkedHashSet();
         // 有序不重复   判断重复的条件： 排序结果==0 相等
-//         testTreeSet();
+         testTreeSet();
         Object o =new Object();
         o.hashCode();
 
