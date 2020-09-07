@@ -44,6 +44,7 @@ public class ListLab {
         }
         long end = System.currentTimeMillis();
         hashMapW += (end - start);
+        System.out.println(map.values());
         System.out.println("HashMap插入耗时 = " + (end - start) + " ms");
         // HashMap 读取
         start = System.currentTimeMillis();

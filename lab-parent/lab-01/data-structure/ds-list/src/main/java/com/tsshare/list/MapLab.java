@@ -1,7 +1,6 @@
 package com.tsshare.list;
 
-import java.util.HashMap;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @author : zfchen
@@ -17,11 +16,21 @@ public class MapLab {
     }
 
     private void testStruct() {
-        HashMap<String,String> res =new HashMap<>(2);
-        for (int i = 0; i <20 ; i++) {
-            String UUIDs = UUID.randomUUID().toString();
-            res.put(UUIDs,UUIDs);
-        }
+//        HashMap<String,String> res =new HashMap<>(2);
+//        for (int i = 0; i <20 ; i++) {
+//            String UUIDs = UUID.randomUUID().toString();
+//            res.put(UUIDs,UUIDs);
+//        }
+
+        ArrayList<String> arrayList =new ArrayList<>();
+        arrayList.add("111");
+
+        LinkedList<String> linkedList =new LinkedList<>();
+        linkedList.add("111");
+
+        Vector<String> vc =new Vector<>();
+        vc.add("111");
+
     }
 
 }

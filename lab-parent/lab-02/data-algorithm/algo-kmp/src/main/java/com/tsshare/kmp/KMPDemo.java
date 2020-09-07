@@ -8,4 +8,10 @@ package com.tsshare.kmp;
  * @date 2020/7/10:11
  */
 public class KMPDemo {
+
+    public static void main(String[] args) {
+        String tmp ="BBC ABCDAB ABCDABCDABDE";
+        boolean ab = tmp.contains("ABCDABD");
+        System.out.println(ab);
+    }
 }

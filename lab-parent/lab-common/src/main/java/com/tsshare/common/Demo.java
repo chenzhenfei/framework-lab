@@ -23,5 +23,9 @@ public class Demo {
         String test ="f2caead6-c481-42a4-a50d-f6f38736a9dc";
         System.out.println(test.hashCode());
         Assert.isTrue(test.hashCode()==1521816749,"object hashcode" );
+
+
+
+
     }
 }
