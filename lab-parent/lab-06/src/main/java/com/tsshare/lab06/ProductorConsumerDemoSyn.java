@@ -10,12 +10,12 @@ import java.util.concurrent.Executors;
  * @author chenzhenfei
  * @title: ProductorConsumerDemo
  * @projectName framework-lab
- * @description: 生产者/消费者   生产者/消费着案例
+ * @description: 生产者/消费者 使用syn实现   生产者/消费着案例
  *                  1、notify 早期通知
  *                  2、假死
  * @date 2020/9/1322:33
  */
-public class ProductorConsumerDemo {
+public class ProductorConsumerDemoSyn {
 
 
     public static void main(String[] args) {
