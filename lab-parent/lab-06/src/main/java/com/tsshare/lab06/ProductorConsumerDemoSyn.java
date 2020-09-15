@@ -45,6 +45,8 @@ public class ProductorConsumerDemoSyn {
                 synchronized (list) {
                     try {
                         while (list.size() == length) {
+                            boolean b = Thread.holdsLock(list);
+                            System.out.println(b);
                             System.out.println(Thread.currentThread().getName() + "：生产者已经达到峰值");
                             list.wait();
                             System.out.println(Thread.currentThread().getName() + "：退出wait");
