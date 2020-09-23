@@ -1,5 +1,7 @@
 package com.tsshare.lab06;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * @author chenzhenfei
  * @title: CASDemo
@@ -8,4 +10,8 @@ package com.tsshare.lab06;
  * @date 2020/9/723:14
  */
 public class CASDemo {
+
+    public static void main(String[] args) {
+    }
+
 }
