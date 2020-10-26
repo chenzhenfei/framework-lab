@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tsshare.lab02.repository.role.RoleMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.tsshare.lab02.entity.role.Role">
+                    <id column="id" property="id"/>
+                    <result column="name" property="name"/>
+                    <result column="description" property="description"/>
+                    <result column="level" property="level"/>
+                    <result column="status" property="status"/>
+                    <result column="modify_user_id" property="modifyUserId"/>
+                    <result column="modifydate" property="modifydate"/>
+                    <result column="shortName" property="shortName"/>
+                    <result column="permissions" property="permissions"/>
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+            id, name, description, level, status, modify_user_id, modifydate, shortName, permissions
+        </sql>
+
+</mapper>
