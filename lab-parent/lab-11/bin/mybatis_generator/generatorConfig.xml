@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">  
+<generatorConfiguration>  
+    <!-- 数据库驱动包位置 -->  
+    <classPathEntry location="D:\source code\my\framework-lab\lab-parent\lab-11\bin\mybatis_generator\mysql-connector-java-5.1.28.jar" />
+    
+    <context id="DB2Tables" targetRuntime="MyBatis3">  
+        <commentGenerator>  
+            <property name="suppressAllComments" value="true" />  
+        </commentGenerator>  
+        
+        <!-- 数据库链接URL、用户名、密码 -->  
+         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.0.131:3306/db-master?characterEncoding=utf8" userId="root" password="root123">
+        <!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@localhost:1521:orcl" userId="msa" password="msa">-->  
+        </jdbcConnection>  
+        <javaTypeResolver>  
+            <property name="forceBigDecimals" value="false" />  
+        </javaTypeResolver>  
+        
+        <!-- 生成实体类地址 --> 
+        <javaModelGenerator targetPackage="com.tsshare.lab11.entity" targetProject="D:\source code\my\framework-lab\lab-parent\lab-11\src\main\java">
+            <property name="enableSubPackages" value="true" />  
+            <property name="trimStrings" value="true" />  
+        </javaModelGenerator>  
+        
+        <!-- 生成的映射文件包名和位置 -->  
+        <sqlMapGenerator targetPackage="mybatis" targetProject="D:\source code\my\framework-lab\lab-parent\lab-11\src\main\resources">
+            <property name="enableSubPackages" value="true" />  
+            
+        </sqlMapGenerator>  
+        
+        <!-- 生成DAO的包名和位置 -->  
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.tsshare.lab11.repository" targetProject="D:\source code\my\framework-lab\lab-parent\lab-11\src\main\java" >
+            <property name="enableSubPackages" value="true" />  
+        </javaClientGenerator>  
+       
+		
+        <!-- 对应实体的配置   domainObjectName :dto 名称   mapperName="DealOrderDao"  默认为*Mapper-->  
+        <table tableName="user_tb_0" domainObjectName="UserTb"   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" >
+    		<property name="useActualColumnNames" value="false"/>
+    	</table>
+    	
+    	
+    </context>  
+</generatorConfiguration>  

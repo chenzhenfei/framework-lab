@@ -138,7 +138,7 @@ public class MPGenerator {
         strategy.setRestControllerStyle(true);
 
         // 公共父类
-        strategy.setSuperControllerClass("com.purang.am.web.base.BaseController");
+        strategy.setSuperControllerClass("com.tsshare.lab11.web.base.BaseController");
         // 写于父类中的公共字段
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
         strategy.setControllerMappingHyphenStyle(true);

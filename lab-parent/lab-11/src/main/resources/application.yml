@@ -1,0 +1,38 @@
+
+
+spring:
+  application:
+    name: master-salve-demo
+  main:
+    allow-bean-definition-overriding: true
+  shardingsphere:
+    datasource:
+      names: master,slave
+      #主数据源
+      master:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.0.131:3306/db-master?characterEncoding=utf-8
+        username: root
+        password: root123
+      slave:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://192.168.0.131:3306/db-salve?characterEncoding=utf-8
+        username: root
+        password: root123
+    masterslave:
+      #读写分离配置
+      load-balance-algorithm-type: round_robin
+      name: data-source
+      master-data-source-name: master
+      slave-data-source-names: slave
+    props:
+      #开启sql显示
+      sql:
+        show: true
+server:
+  port: 8089
+mybatis-plus:
+    type-aliases-package: com.tsshare.lab11.entity
+    mapper-locations: classpath:mybatis/*Mapper.xml
