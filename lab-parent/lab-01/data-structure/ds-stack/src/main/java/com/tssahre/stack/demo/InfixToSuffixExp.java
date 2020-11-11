@@ -21,6 +21,8 @@ public class InfixToSuffixExp {
         String calExp = "1*2+3*(9-2)+90";
         Queue<Character> queue = convertInfixToSuffixExp(calExp);
         //如果要计算的话需要区分 1*2+12 ，放入队列中的时候 1212这种需要做区分
+
+//        queue.stream().forEach(System.out::println);
         int i = machineCalExp(queue);
         System.out.println(i);
     }
